@@ -44,6 +44,11 @@ public class CarController : MonoBehaviour
         {
             Debug.Log("Yay it worked!!");
         }
+
+        if (other.gameObject.CompareTag("Building"))
+        {
+            Debug.Log("Restart");
+        }
     }
 
 

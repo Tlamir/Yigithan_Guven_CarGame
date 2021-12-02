@@ -16,15 +16,14 @@ public class Car : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Exit"))
         {
-            Debug.Log(spawner.carNumber);
+            //Debug.Log(spawner.carNumber);
             spawner.SpawnCar(spawner.carNumber);
             spawner.SpawnExit(spawner.carNumber);
-            spawner.carNumber++;
         }
 
         if (other.gameObject.CompareTag("Building"))
         {
-            Debug.Log("Restart");
+            //Debug.Log("Restart");
         }
     }
 }

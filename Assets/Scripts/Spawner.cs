@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public int carNumber = 2;
+    public int carNumber = 0;
     public GameObject Car;            
     public GameObject Exit;
 
@@ -12,11 +12,21 @@ public class Spawner : MonoBehaviour
     public Vector3[] CarSpawnLocations = new Vector3[8];
     public Vector3[] ExitSpawnLocations = new Vector3[8];
 
-    public void SpawnCar(int carNumber)
+    private void Start()
     {
-            for (int i = 0; i < carNumber; i++)
+        carNumber = 0;
+        //Debug.Log(carNumber);
+        SpawnCar(carNumber);
+        SpawnExit(carNumber);
+
+
+    }
+
+    public void SpawnCar(int carNumberr)
+    {
+            for (int i = 0; i <= carNumberr; i++)
             {
-                if (i == carNumber)
+                if (i == carNumberr)
                 {
                  GameObject car = Instantiate(Car, CarSpawnLocations[i], Quaternion.identity);
                  car.GetComponent<CarController>().isControlleble = true;
@@ -28,11 +38,12 @@ public class Spawner : MonoBehaviour
                 }
                 
                  
-            }     
+            }
+        carNumber++;
     }
 
     public void SpawnExit(int exitNumber)
-    {  
-         Instantiate(Exit, ExitSpawnLocations[exitNumber], Quaternion.identity); 
+    {  //-1 because start function increases value before instantiate a exit object
+         Instantiate(Exit, ExitSpawnLocations[exitNumber-1], Quaternion.identity); 
     }
 }

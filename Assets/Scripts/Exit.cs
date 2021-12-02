@@ -8,7 +8,10 @@ public class Exit : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(other.gameObject);
+        GameObject[] cars = GameObject.FindGameObjectsWithTag("Car");
+        foreach (GameObject car in cars)
+            GameObject.Destroy(car);
+
         Destroy(this.gameObject);
     }
 }

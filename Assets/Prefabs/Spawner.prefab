@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02732926d260e564089479062c9f09c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carNumber: 2
   Car: {fileID: 8331829929958962958, guid: f4ee850a4bbf02f44b5828a6c6252041, type: 3}
   Exit: {fileID: 1078976354914664064, guid: d9312ce1bfbede84fb18e47794f65ce7, type: 3}
   CarSpawnLocations:
@@ -55,11 +56,11 @@ MonoBehaviour:
   - {x: 2, y: 0.098, z: -2.259}
   - {x: 1.5, y: 0.098, z: -2.259}
   ExitSpawnLocations:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: 4.05, y: 0, z: 2.31}
+  - {x: 3.5, y: 0, z: 2.31}
+  - {x: 3, y: 0, z: 2.31}
+  - {x: 2.5, y: 0, z: 2.31}
+  - {x: 2, y: 0, z: 2.31}
+  - {x: 1.5, y: 0, z: 2.31}
+  - {x: 1, y: 0, z: 2.31}
+  - {x: 0.5, y: 0, z: 2.31}

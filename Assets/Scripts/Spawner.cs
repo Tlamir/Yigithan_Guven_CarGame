@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public int carNumber = 2;
-    public GameObject Car;
+    public GameObject Car;            
     public GameObject Exit;
 
 
@@ -16,7 +16,18 @@ public class Spawner : MonoBehaviour
     {
             for (int i = 0; i < carNumber; i++)
             {
-                Instantiate(Car, CarSpawnLocations[i], Quaternion.identity);
+                if (i == carNumber)
+                {
+                 GameObject car = Instantiate(Car, CarSpawnLocations[i], Quaternion.identity);
+                 car.GetComponent<CarController>().isControlleble = true;
+                }
+                else
+                {
+                GameObject car = Instantiate(Car, CarSpawnLocations[i], Quaternion.identity);
+                car.GetComponent<CarController>().isControlleble = false;
+                }
+                
+                 
             }     
     }
 

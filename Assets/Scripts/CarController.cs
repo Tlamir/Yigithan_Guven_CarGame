@@ -12,15 +12,24 @@ public class CarController : MonoBehaviour
     Vector3 rotationLeft = new Vector3(0, -60, 0);
     Vector3 forward = new Vector3(0, 0, 1);
 
+    private bool isFreezed = true;
+
     // Update is called once per frame
     void Update()
     {
         MoveStraight();
 
         if (Input.GetKey("d"))
+        {
             MoveRight();
+            isFreezed = false;
+        }
+            
         if (Input.GetKey("a"))
+        {
             MoveLeft();
+            isFreezed = false;
+        }     
     }
 
     void MoveLeft(){
@@ -34,22 +43,8 @@ public class CarController : MonoBehaviour
     }
 
     void MoveStraight(){
+        if (!isFreezed)
         transform.Translate(forward * speed * Time.deltaTime);
     }
-
-    //Upon collision with another GameObject
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Exit"))
-        {
-            Debug.Log("Yay it worked!!");
-        }
-
-        if (other.gameObject.CompareTag("Building"))
-        {
-            Debug.Log("Restart");
-        }
-    }
-
 
 }

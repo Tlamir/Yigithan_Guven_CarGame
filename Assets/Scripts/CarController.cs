@@ -10,8 +10,9 @@ public class CarController : MonoBehaviour
     Vector3 rotationLeft = new Vector3(0, -60, 0);
     Vector3 forward = new Vector3(0, 0, 1);
 
+
     public float speed = 1.5f;
-    private bool isFreezed = true;
+    public bool isFreezed = true;
     public bool isControlleble = true;
 
     // Update is called once per frame

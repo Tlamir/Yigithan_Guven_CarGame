@@ -26,6 +26,11 @@ public class Spawner : MonoBehaviour
     {
             for (int i = 0; i <= carNumberr; i++)
             {
+                if (carNumberr == 8)
+                { 
+                 carNumber++;
+                 break;
+                }
                 if (i == carNumberr)
                 {
                  GameObject car = Instantiate(Car, CarSpawnLocations[i], Quaternion.identity);
@@ -44,6 +49,11 @@ public class Spawner : MonoBehaviour
 
     public void SpawnExit(int exitNumber)
     {  //-1 because start function increases value before instantiate a exit object
-         Instantiate(Exit, ExitSpawnLocations[exitNumber-1], Quaternion.identity); 
+        if (exitNumber<9)
+        {
+            Instantiate(Exit, ExitSpawnLocations[exitNumber - 1], Quaternion.identity);
+        }
+         
     }
+
 }

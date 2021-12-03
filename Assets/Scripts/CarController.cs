@@ -5,6 +5,7 @@ using UnityEngine;
 public class CarController : MonoBehaviour
 {
     public Rigidbody rb;
+
     
     Vector3 rotationRight = new Vector3(0, 60, 0);
     Vector3 rotationLeft = new Vector3(0, -60, 0);
@@ -35,6 +36,10 @@ public class CarController : MonoBehaviour
             }
 
         }
+        else
+        {
+            //Play Replay
+        }
        
     }
 
@@ -50,7 +55,11 @@ public class CarController : MonoBehaviour
 
     void MoveStraight(){
         if (!isFreezed)
-        transform.Translate(forward * speed * Time.deltaTime);
+        {
+            transform.Translate(forward * speed * Time.deltaTime);
+            
+        }
+       
     }
 
 }

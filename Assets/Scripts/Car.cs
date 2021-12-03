@@ -24,6 +24,7 @@ public class Car : MonoBehaviour
             //Debug.Log(spawner.carNumber);
             spawner.SpawnCar(spawner.carNumber);
             spawner.SpawnExit(spawner.carNumber);
+
         }
 
         if (other.gameObject.CompareTag("Building"))

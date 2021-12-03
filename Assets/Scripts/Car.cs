@@ -25,9 +25,18 @@ public class Car : MonoBehaviour
         if (!isRecorded && !this.GetComponent<CarController>().isFreezed)
         {
             actionReplayRecords.Add(new ActionReplayRecord { Position = transform.position, Rotation = transform.rotation });
-            Debug.Log("Now recording in car.cs");
+           // Debug.Log("Now recording in car.cs");
         }
         
+    }
+
+    private void Update()
+    {
+        //Reset out of bounds
+        if (this.transform.position.z>3.05 || this.transform.position.z < -3.05 || this.transform.position.x < -5.5 || this.transform.position.x > 5.5)
+        {
+            ResetGame();
+        }
     }
 
 
@@ -79,4 +88,5 @@ public class Car : MonoBehaviour
             }
         }
     }
+
 }

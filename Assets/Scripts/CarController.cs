@@ -19,7 +19,7 @@ public class CarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (isControlleble )
+        if (isControlleble )
         {
             
             MoveStraight();
@@ -43,11 +43,11 @@ public class CarController : MonoBehaviour
             {
                 //replay here
             }
-        }*/
+        }
 
 
         //Mobile Controls
-        if (isControlleble)
+        /*if (isControlleble)
         {
             if(!isFreezed)
                 MoveStraight();
@@ -77,7 +77,7 @@ public class CarController : MonoBehaviour
         }
         
         //Mobile Controls End
-
+        */
 
 
 

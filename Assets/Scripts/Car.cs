@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Car : MonoBehaviour
 {
+    public bool isRecorded=false;
     Spawner spawner;
     public GameObject[] cars;
+    private List<ActionReplayRecord> actionReplayRecords = new List<ActionReplayRecord>();
 
 
 
@@ -16,11 +18,28 @@ public class Car : MonoBehaviour
         spawner=GameObject.FindGameObjectWithTag("Spawner").GetComponent<Spawner>();
          
     }
+
+
+    private void FixedUpdate()
+    {
+        if (!isRecorded && !this.GetComponent<CarController>().isFreezed)
+        {
+            actionReplayRecords.Add(new ActionReplayRecord { Position = transform.position, Rotation = transform.rotation });
+            Debug.Log("Now recording in car.cs");
+        }
+        
+    }
+
+
+
     //Upon collision with another GameObject
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Exit"))
         {
+            isRecorded=true;
+            //Save records to some place 
+
             //Debug.Log(spawner.carNumber);
             spawner.SpawnCar(spawner.carNumber);
             spawner.SpawnExit(spawner.carNumber);

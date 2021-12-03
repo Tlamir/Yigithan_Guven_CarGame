@@ -29,21 +29,35 @@ public class Car : MonoBehaviour
 
         if (other.gameObject.CompareTag("Building"))
         {
-            //Reset game if car collides with building
-            int i = 0;
-            cars = GameObject.FindGameObjectsWithTag("Car");
-            foreach (GameObject car in cars)
+            ResetGame();
+        }
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Car"))
+        {
+            ResetGame();
+        }
+    }
+
+    void ResetGame()
+    {
+        //Reset game 
+        int i = 0;
+        cars = GameObject.FindGameObjectsWithTag("Car");
+        foreach (GameObject car in cars)
+        {
+            car.transform.position = spawner.CarSpawnLocations[i];
+            car.transform.rotation = spawner.CarSpawnRotations[i];
+            i++;
+            if (spawner.carNumber == i)
             {
-                car.transform.position = spawner.CarSpawnLocations[i];    
-                i++;
-                if (spawner.carNumber==i)
-                {
-                    car.GetComponent<CarController>().isControlleble = true;
-                    car.GetComponent<CarController>().isFreezed = true;
-                    //Fix rotation later
-                }
+                car.GetComponent<CarController>().isControlleble = true;
+                car.GetComponent<CarController>().isFreezed = true;
+                //Fix rotation later
             }
-            
         }
     }
 }

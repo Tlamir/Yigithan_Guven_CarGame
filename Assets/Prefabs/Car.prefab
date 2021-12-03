@@ -113,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 8331829929958962952}
   speed: 2
+  isFreezed: 1
   isControlleble: 1
 --- !u!54 &8331829929958962952
 Rigidbody:
@@ -142,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e4b4a7c333d21249aa9d2e57290d0c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cars: []
 --- !u!114 &1952514079
 MonoBehaviour:
   m_ObjectHideFlags: 0

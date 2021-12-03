@@ -11,6 +11,7 @@ public class Spawner : MonoBehaviour
 
     public Vector3[] CarSpawnLocations = new Vector3[8];
     public Vector3[] ExitSpawnLocations = new Vector3[8];
+    public Quaternion[] CarSpawnRotations = new Quaternion[8];
 
     private void Start()
     {

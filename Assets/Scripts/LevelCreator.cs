@@ -8,11 +8,11 @@ using UnityEngine;
 public class LevelCreator : MonoBehaviour
 {
     public GameObject levelPrefab;
-    public static int sceneCountInBuildSettings;
-    private int levelNumber = sceneCountInBuildSettings + 3;
     public void CreateNewScene()
     {   //Create New Scene
         var newScene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+        //Level Number
+        int levelNumber = EditorSceneManager.sceneCountInBuildSettings + 1;
         newScene.name = "Level" + levelNumber;
         //Fill New Scene with Level prefab
         Instantiate(levelPrefab);

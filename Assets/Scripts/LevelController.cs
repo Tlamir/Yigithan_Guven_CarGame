@@ -16,7 +16,7 @@ public class LevelController : MonoBehaviour
         if (spawner.carNumber > 8)
         {
             //Load next level
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            LoadNewLevel();
         }
     }
 
@@ -38,4 +38,12 @@ public class LevelController : MonoBehaviour
             }
         }
    }
+
+    void LoadNewLevel()
+    {
+        if (SceneManager.sceneCountInBuildSettings!=SceneManager.GetActiveScene().buildIndex+1)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    }
 }

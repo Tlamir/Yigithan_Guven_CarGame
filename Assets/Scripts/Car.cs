@@ -15,6 +15,12 @@ public class Car : MonoBehaviour
     {
         spawner=GameObject.FindGameObjectWithTag("Spawner").GetComponent<Spawner>();
         levelController=GameObject.FindGameObjectWithTag("LevelController").GetComponent<LevelController>();
+
+        //Change car color if its controlleble
+        if (this.GetComponent<CarController>().isControlleble)
+        {
+            this.GetComponent<Renderer>().material.color = Color.blue;
+        }
     }
 
     private void FixedUpdate()

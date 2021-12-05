@@ -14,6 +14,7 @@ public class CarController : MonoBehaviour
     public float speed = 1.5f;
     public bool isFreezed = true;
     public bool isControlleble = true;
+    
 
     // Update is called once per frame
     void Update()
@@ -23,8 +24,10 @@ public class CarController : MonoBehaviour
             DesktopControls();
         else
             MobileControls();
-        
+
     }
+        
+    
 
     void MoveLeft(){
         Quaternion deltaRotationLeft = Quaternion.Euler(rotationLeft * Time.deltaTime);

@@ -29,6 +29,8 @@ public class LevelController : MonoBehaviour
         {
             car.transform.position = spawner.CarSpawnLocations[i];
             car.transform.rotation = spawner.CarSpawnRotations[i];
+            car.GetComponent<CarController>().isFreezed = true;
+            car.GetComponent<CarController>().index = 0;
             i++;
             if (spawner.carNumber == i)
             {

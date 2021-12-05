@@ -33,12 +33,15 @@ public class Spawner : MonoBehaviour
                 {
                  GameObject car = Instantiate(Car, CarSpawnLocations[i], Quaternion.identity);
                  car.GetComponent<CarController>().isControlleble = true;
+                 car.GetComponent<CarController>().carNumber = i;
                 }
                 else
                 {
-                GameObject car = Instantiate(Car, CarSpawnLocations[i], Quaternion.identity);
-                car.GetComponent<CarController>().isControlleble = false;
-                }              
+                 GameObject car = Instantiate(Car, CarSpawnLocations[i], Quaternion.identity);
+                 car.GetComponent<CarController>().isControlleble = false;
+                 car.GetComponent<CarController>().carNumber = i;
+                } 
+                
             }
         carNumber++;
     }

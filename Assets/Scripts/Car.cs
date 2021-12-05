@@ -6,15 +6,16 @@ public class Car : MonoBehaviour
 {
     Spawner spawner;
     LevelController levelController;
+    CarRecord CarRecord;
 
     
-    public bool isRecorded=false;
-    private List<ActionReplayRecord> actionReplayRecords = new List<ActionReplayRecord>();
+    //private List<ActionReplayRecord> actionReplayRecords = new List<ActionReplayRecord>();
 
     private void Start()
     {
         spawner=GameObject.FindGameObjectWithTag("Spawner").GetComponent<Spawner>();
         levelController=GameObject.FindGameObjectWithTag("LevelController").GetComponent<LevelController>();
+        CarRecord = GameObject.FindGameObjectWithTag("CarRecord").GetComponent<CarRecord>();
 
         //Change car color if its controlleble
         if (this.GetComponent<CarController>().isControlleble)
@@ -23,15 +24,6 @@ public class Car : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        if (!isRecorded && !this.GetComponent<CarController>().isFreezed)
-        {
-            actionReplayRecords.Add(new ActionReplayRecord { Position = transform.position, Rotation = transform.rotation });
-           // Debug.Log("Now recording in car.cs");
-        }
-        
-    }
 
     private void Update()
     {
@@ -40,8 +32,12 @@ public class Car : MonoBehaviour
         {
             levelController.ResetGame();
         }
-    }
 
+        if (this.GetComponent<CarController>().isControlleble && !this.GetComponent<CarController>().isFreezed)
+        {
+            CarRecord.ActionReplayRecords[spawner.carNumber - 1].Add(new ActionReplayRecord { Position = transform.position, Rotation = transform.rotation });
+        }
+    }
 
 
     //Upon collision with another GameObject
@@ -49,7 +45,6 @@ public class Car : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Exit"))
         {
-            isRecorded=true;
             //Save records to some place 
 
             //Debug.Log(spawner.carNumber);
@@ -61,8 +56,12 @@ public class Car : MonoBehaviour
         if (other.gameObject.CompareTag("Building"))
         {
             levelController.ResetGame();
-        }
+            if (this.GetComponent<CarController>().isControlleble)
+            {
+                ClearRecord();
+            }
 
+        }
     }
 
     //OnColisionEnter --> cars are not trigger
@@ -71,6 +70,16 @@ public class Car : MonoBehaviour
         if (collision.gameObject.CompareTag("Car"))
         {
             levelController.ResetGame();
+            if (this.GetComponent<CarController>().isControlleble)
+            {
+                ClearRecord();
+            }
+            
         }
+    }
+
+    private void ClearRecord()
+    {
+        CarRecord.ActionReplayRecords[this.GetComponent<CarController>().carNumber].Clear();
     }
 }

@@ -10,6 +10,7 @@ TagManager:
   - Car
   - Records
   - LevelController
+  - CarRecord
   layers:
   - Default
   - TransparentFX

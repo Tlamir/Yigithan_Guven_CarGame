@@ -6,7 +6,6 @@ public class CustomInspector : Editor
 {
     public override void OnInspectorGUI()
     {
-        DrawDefaultInspector();
 
         LevelCreator creator = (LevelCreator)target;
 
@@ -16,5 +15,6 @@ public class CustomInspector : Editor
         }
 
     }
+
     
 }

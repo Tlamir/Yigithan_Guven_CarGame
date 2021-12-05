@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 8331829929958962955}
   - component: {fileID: 8331829929958962952}
   - component: {fileID: 8331829928928755824}
-  - component: {fileID: 1952514079}
   m_Layer: 0
   m_Name: Car
   m_TagString: Car
@@ -115,6 +114,8 @@ MonoBehaviour:
   speed: 2
   isFreezed: 1
   isControlleble: 1
+  index: 0
+  carNumber: 0
 --- !u!54 &8331829929958962952
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -141,18 +142,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e4b4a7c333d21249aa9d2e57290d0c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cars: []
---- !u!114 &1952514079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8331829929958962958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 444b2f8c68d448f4daaafa61b7321b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

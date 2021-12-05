@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ActionReplay : MonoBehaviour
 {
-    private bool isInReplayMode;
-    private int currentReplayIndex;
     private Rigidbody rigidbody;
     private List<ActionReplayRecord> actionReplayRecords = new List<ActionReplayRecord>();
+
+    private bool isInReplayMode;
+    private int currentReplayIndex;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,6 @@ public class ActionReplay : MonoBehaviour
             }
         }
         
-
     }
 
     private void FixedUpdate()

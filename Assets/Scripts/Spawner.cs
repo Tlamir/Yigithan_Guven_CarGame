@@ -4,23 +4,20 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public int carNumber = 0;
     public GameObject Car;            
     public GameObject Exit;
-
 
     public Vector3[] CarSpawnLocations = new Vector3[8];
     public Vector3[] ExitSpawnLocations = new Vector3[8];
     public Quaternion[] CarSpawnRotations = new Quaternion[8];
 
+    public int carNumber = 0;
+
     private void Start()
     {
         carNumber = 0;
-        //Debug.Log(carNumber);
         SpawnCar(carNumber);
         SpawnExit(carNumber);
-
-
     }
 
     public void SpawnCar(int carNumberr)
@@ -41,9 +38,7 @@ public class Spawner : MonoBehaviour
                 {
                 GameObject car = Instantiate(Car, CarSpawnLocations[i], Quaternion.identity);
                 car.GetComponent<CarController>().isControlleble = false;
-                }
-                
-                 
+                }              
             }
         carNumber++;
     }
@@ -53,8 +48,6 @@ public class Spawner : MonoBehaviour
         if (exitNumber<9)
         {
             Instantiate(Exit, ExitSpawnLocations[exitNumber - 1], Quaternion.identity);
-        }
-         
+        } 
     }
-
 }

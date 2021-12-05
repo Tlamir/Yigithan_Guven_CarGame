@@ -9,6 +9,7 @@ TagManager:
   - Spawner
   - Car
   - Records
+  - LevelController
   layers:
   - Default
   - TransparentFX

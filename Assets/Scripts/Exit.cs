@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Exit : MonoBehaviour
 {
-
-
     private void OnTriggerEnter(Collider other)
     {
         GameObject[] cars = GameObject.FindGameObjectsWithTag("Car");

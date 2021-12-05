@@ -4,21 +4,18 @@ using UnityEngine;
 
 public class Car : MonoBehaviour
 {
-    public bool isRecorded=false;
     Spawner spawner;
-    public GameObject[] cars;
+    LevelController levelController;
+
+    
+    public bool isRecorded=false;
     private List<ActionReplayRecord> actionReplayRecords = new List<ActionReplayRecord>();
-
-
-
-
 
     private void Start()
     {
         spawner=GameObject.FindGameObjectWithTag("Spawner").GetComponent<Spawner>();
-         
+        levelController=GameObject.FindGameObjectWithTag("LevelController").GetComponent<LevelController>();
     }
-
 
     private void FixedUpdate()
     {
@@ -35,7 +32,7 @@ public class Car : MonoBehaviour
         //Reset out of bounds
         if (this.transform.position.z>3.05 || this.transform.position.z < -3.05 || this.transform.position.x < -5.5 || this.transform.position.x > 5.5)
         {
-            ResetGame();
+            levelController.ResetGame();
         }
     }
 
@@ -57,36 +54,17 @@ public class Car : MonoBehaviour
 
         if (other.gameObject.CompareTag("Building"))
         {
-            ResetGame();
+            levelController.ResetGame();
         }
 
     }
 
+    //OnColisionEnter --> cars are not trigger
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Car"))
         {
-            ResetGame();
+            levelController.ResetGame();
         }
     }
-
-    void ResetGame()
-    {
-        //Reset game 
-        int i = 0;
-        cars = GameObject.FindGameObjectsWithTag("Car");
-        foreach (GameObject car in cars)
-        {
-            car.transform.position = spawner.CarSpawnLocations[i];
-            car.transform.rotation = spawner.CarSpawnRotations[i];
-            i++;
-            if (spawner.carNumber == i)
-            {
-                car.GetComponent<CarController>().isControlleble = true;
-                car.GetComponent<CarController>().isFreezed = true;
-                //Fix rotation later
-            }
-        }
-    }
-
 }

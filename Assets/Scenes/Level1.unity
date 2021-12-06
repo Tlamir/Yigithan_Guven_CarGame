@@ -136,6 +136,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8177092586283754563, guid: 1921de3cb9cfcfc4897e5f71deb9d6d9,
+        type: 3}
+      propertyPath: ExitSpawnLocations.Array.data[1].x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177092586283754563, guid: 1921de3cb9cfcfc4897e5f71deb9d6d9,
+        type: 3}
+      propertyPath: ExitSpawnLocations.Array.data[2].x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177092586283754563, guid: 1921de3cb9cfcfc4897e5f71deb9d6d9,
+        type: 3}
+      propertyPath: ExitSpawnLocations.Array.data[3].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177092586283754563, guid: 1921de3cb9cfcfc4897e5f71deb9d6d9,
+        type: 3}
+      propertyPath: ExitSpawnLocations.Array.data[4].x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8177092586434052496, guid: 1921de3cb9cfcfc4897e5f71deb9d6d9,
         type: 3}
       propertyPath: m_RootOrder

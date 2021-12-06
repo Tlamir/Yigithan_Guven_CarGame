@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8331829929958962952}
-  speed: 2
+  speed: 3
   isFreezed: 1
   isControlleble: 1
   index: 0

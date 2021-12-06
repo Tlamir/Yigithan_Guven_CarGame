@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelController : MonoBehaviour 
+public class LevelController : MonoBehaviour
 {
     Spawner spawner;
     public GameObject[] cars;
@@ -20,8 +18,8 @@ public class LevelController : MonoBehaviour
         }
     }
 
-   public void ResetGame()
-   {
+    public void ResetGame()
+    {
         //Reset game 
         int i = 0;
         cars = GameObject.FindGameObjectsWithTag("Car");
@@ -35,15 +33,15 @@ public class LevelController : MonoBehaviour
             if (spawner.carNumber == i)
             {
                 car.GetComponent<CarController>().isControlleble = true;
-                car.GetComponent<CarController>().isFreezed = true;
-                //Fix rotation later
+                car.GetComponent<Car>().ClearRecord();
             }
+
         }
-   }
+    }
 
     void LoadNewLevel()
     {
-        if (SceneManager.sceneCountInBuildSettings!=SceneManager.GetActiveScene().buildIndex+1)
+        if (SceneManager.sceneCountInBuildSettings != SceneManager.GetActiveScene().buildIndex + 1)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
